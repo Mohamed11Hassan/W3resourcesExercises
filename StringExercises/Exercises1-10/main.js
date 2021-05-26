@@ -104,21 +104,21 @@ let str10 = "AaBbc";
 
 let upperLowerCase = (s) =>{
     s = s.split("");
-    console.log(s);
-    for(let letter = 0; letter < s.length; letter++){
+    s.forEach(function(_ ,letter) {
+        s[letter] = (s[letter].charCodeAt(0) >= 65 && s[letter].charCodeAt(0) <= 90)?s[letter].toLowerCase():((s[letter].charCodeAt(0) >= 97 && s[letter].charCodeAt(0) <= 128)?s[letter].toUpperCase():false);
+    })
+    /*for(let letter = 0; letter < s.length; letter++){
         if(s[letter].charCodeAt(0) >= 65 && s[letter].charCodeAt(0) <= 90) {
             s[letter] = s[letter].toLowerCase();
-            console.log(s[letter]);
         } else if(s[letter].charCodeAt(0) >= 97 && s[letter].charCodeAt(0) <= 128) {
             s[letter] = s[letter].toUpperCase();
         } 
-    }
+    }*/
     return s.join("");
 }
 
 console.log(upperLowerCase(str10));
 
-/*let regExp = /[a-z]/g, 
-str11 = "mansm";
-str11.replace();
-console.log(str11);*/
+let regExp = /([A-Z])|([a-z])/g, 
+str11 = "maSnsmM";
+str11.replace(regExp, (_, index) => console.log(_));//index? _.toLowerCase() : _.toUpperCase() ));
