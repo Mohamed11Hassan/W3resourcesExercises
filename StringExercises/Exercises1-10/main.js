@@ -119,6 +119,12 @@ let upperLowerCase = (s) =>{
 
 console.log(upperLowerCase(str10));
 
-let regExp = /([A-Z])|([a-z])/g, 
+let regExp = /([A-Z]+)|([a-z]+)/g, 
 str11 = "maSnsmM";
 str11.replace(regExp, (_, index) => console.log(_));//index? _.toLowerCase() : _.toUpperCase() ));
+
+let regExp2 = (/\s[a-z]/g),
+    str12 = "mohamed hassan mansour";
+console.log(str12.replace(regExp2, (_) => console.log(_)));
+str12.replace(regExp2, (_) => console.log(_.charAt(1).toUpperCase()))
+console.log(str12);
