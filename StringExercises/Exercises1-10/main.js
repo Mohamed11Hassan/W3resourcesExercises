@@ -198,19 +198,18 @@ console.log(textTruncate(str18, 17));
 
 console.log(`${"=".repeat(30)}Exercise017${"=".repeat(30)}`);
 
-let str19 = "We are doing JS string exercises.";
+let str19 = "We are doing JS string exercises55.";
 
-let cutToChunks = (s) => s.match(/.{1,2}/g);
-console.log(cutToChunks(str19));
+let cutToChunks = (s, nOfChunks) => (nOfChunks > 0)? s.match(new RegExp(`.{${1,nOfChunks}}`, 'g')) : s;
+console.log(cutToChunks(str19, 1));
 
 /*====================Exercise018==================*/
 
-console.log(`${"=".repeat(30)}Exercise018${"=".repeat(30)}`);
+let str19 = "We are doing JS string exercises55.";
 
-let str20 = "The quick brown fox jumps over the lazy dog";
+let cutToChunks = (s, nOfChunks) => (nOfChunks > 0)? s.match(new RegExp(`.{1,${nOfChunks}}`, 'g')) : s;
 
-let countRepeatedStr = (s, word) => s.match(new RegExp(`\\b${word}\\b`, 'g'));
-console.log(countRepeatedStr(str20, "fox"));
+console.log(cutToChunks(str19, 2));
 
 /*====================Exercise019==================*/
 
@@ -218,7 +217,19 @@ console.log(`${"=".repeat(30)}Exercise019${"=".repeat(30)}`);
 
 let str21 = "The quick brown fox jumps over the lazy dog";
 
+let htmlEncoder = (s) => {
+    let ObjOfEntites = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": "&apos;" 
+    };
 
+    return s.replace(/[&<>"']/g, (entity) => `${ObjOfEntites[entity]}`);
+}
+
+console.log(htmlEncoder("<m>sadasd<"))
 /*====================Exercise020==================*/
 
 console.log(`${"=".repeat(30)}Exercise020${"=".repeat(30)}`);
