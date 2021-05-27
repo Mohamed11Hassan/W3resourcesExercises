@@ -128,3 +128,103 @@ let str12 = "mohamed hassan mansour";
 let swapper = (str) => str.replace(/\b[a-z]/g, (_) => _.toUpperCase());
 
 console.log(swapper(str12));
+
+/*====================Exercise011==================*/
+
+console.log(`${"=".repeat(30)}Exercise011${"=".repeat(30)}`);
+
+let str13 = "ahmed shkao lop";
+
+let camelizeCase = (s) => s.replace(/\W[a-z]/g, (_, index) => (index > 1)? _.toUpperCase() : s).split(" ").join("");
+
+console.log(camelizeCase(str13));
+
+/*====================Exercise012==================*/
+
+console.log(`${"=".repeat(30)}Exercise012${"=".repeat(30)}`);
+
+let str14 = "helloWorld";
+
+let decamelizeCase = (s, sepeartor = " ") => s.replace(/[A-Z]/g, (_) => `${sepeartor}${_.toLowerCase()}`);
+
+console.log(decamelizeCase(str14));
+
+/*====================Exercise013==================*/
+
+console.log(`${"=".repeat(30)}Exercise013${"=".repeat(30)}`);
+
+let str15 = "Ha!";
+
+let strRepeater = (s, nOfTimes) => s.repeat(nOfTimes);
+
+console.log(strRepeater(str15, 2));
+
+
+/*====================Exercise014==================*/
+
+console.log(`${"=".repeat(30)}Exercise014${"=".repeat(30)}`);
+
+let str16 = "We are doing some exercises.";
+
+let strInsert = (s, newS, position = 0) => (position > 0)? `${s.substr(0, position - 1)} ${newS} ${s.substr(position)}`: `${newS} ${s}`;
+
+console.log(strInsert(str16, "mohamed" , 5));
+
+/*====================Exercise015==================*/
+
+console.log(`${"=".repeat(30)}Exercise015${"=".repeat(30)}`);
+
+let num17 = 10352;
+
+let orderNumbers = (num) => {
+    let Ob = {1: "st", 2 :"nd", 3: "rd"}
+    num = num.toString();
+    return (Ob.hasOwnProperty(`${num[num.length-1]}`)) ? `${num}${Ob[num[num.length-1]]}`: `${num}th`;
+}
+
+console.log(orderNumbers(num17));
+
+/*====================Exercise016==================*/
+
+console.log(`${"=".repeat(30)}Exercise016${"=".repeat(30)}`);
+
+let str18 = "We are doing JS string exercises.";
+
+let textTruncate = (s, truncPosition = 0, sign = "...") => (truncPosition > 0 && truncPosition !== true) ? `${s.substr(0, truncPosition)}${sign}`: `${s}`; 
+
+console.log(textTruncate(str18, 17));
+
+/*====================Exercise017==================*/
+
+console.log(`${"=".repeat(30)}Exercise017${"=".repeat(30)}`);
+
+let str19 = "We are doing JS string exercises.";
+
+let cutToChunks = (s) => s.match(/.{1,2}/g);
+console.log(cutToChunks(str19));
+
+/*====================Exercise018==================*/
+
+console.log(`${"=".repeat(30)}Exercise018${"=".repeat(30)}`);
+
+let str20 = "The quick brown fox jumps over the lazy dog";
+
+let countRepeatedStr = (s, word) => s.match(new RegExp(`\\b${word}\\b`, 'g'));
+console.log(countRepeatedStr(str20, "fox"));
+
+/*====================Exercise019==================*/
+
+console.log(`${"=".repeat(30)}Exercise019${"=".repeat(30)}`);
+
+let str21 = "The quick brown fox jumps over the lazy dog";
+
+
+/*====================Exercise020==================*/
+
+console.log(`${"=".repeat(30)}Exercise020${"=".repeat(30)}`);
+
+let str22 = "0000000";
+
+let formattedString = (s, attachedS, formater = '') => (formater === '|')? `${s.substr(0,attachedS.length+1)}${attachedS}`: `${attachedS}${s.substr(attachedS.length)}`;
+
+console.log(formattedString(str22, '123', '|'));
